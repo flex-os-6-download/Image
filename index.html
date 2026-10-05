@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0e1727">
+  <title>Browslex</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="browser-header">
+      <div class="toolbar">
+        <button id="backBtn" class="nav-btn" aria-label="Back">◀</button>
+        <button id="forwardBtn" class="nav-btn" aria-label="Forward">▶</button>
+        <button id="reloadBtn" class="nav-btn" aria-label="Reload">↻</button>
+
+        <div class="address-shell">
+          <span id="securityIndicator" class="security-indicator" aria-label="Security">🔒</span>
+          <input
+            id="addressBar"
+            type="text"
+            spellcheck="false"
+            autocomplete="off"
+            aria-label="Address bar"
+            placeholder="Search or enter URL"
+          />
+        </div>
+
+        <button id="tabButton" class="nav-btn tabs-btn" aria-label="Tabs">
+          <span id="tabCount">1</span>
+        </button>
+        <button id="newTabBtn" class="nav-btn add-tab-btn" aria-label="New tab">+</button>
+      </div>
+    </header>
+
+    <main class="browser-body">
+      <aside id="tabSwitcher" class="tab-switcher hidden" aria-live="polite"></aside>
+
+      <section id="viewport" class="viewport">
+        <div id="startPage" class="start-page">
+          <div class="brand-card">
+            <div class="brand-mark">B</div>
+            <div>
+              <p class="eyebrow">BROWSER</p>
+              <h1>Browslex</h1>
+            </div>
+          </div>
+
+          <div class="search-panel">
+            <input id="startSearch" type="text" placeholder="Search the web or enter a URL" />
+            <button id="startSearchBtn">Go</button>
+          </div>
+
+          <div class="quick-links">
+            <h2>Quick access</h2>
+            <div id="bookmarkGrid" class="bookmark-grid"></div>
+          </div>
+
+          <div class="recent-panel">
+            <h2>Recently visited</h2>
+            <ul id="recentList" class="recent-list"></ul>
+          </div>
+        </div>
+
+        <iframe
+          id="browserFrame"
+          class="browser-frame hidden"
+          title="Web content"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"
+        ></iframe>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+  </html>
